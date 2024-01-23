@@ -26,4 +26,27 @@
             FROM MEMBERS
             WHERE MEM_ID = #{id}
     </select>
+
+    <insert id="insertUser" parameterType="MemberDTO">
+        INSERT INTO MEMBERS (
+                                MEM_ID
+                                , MEM_PWD
+                                , MEM_NAME
+                                , MEM_AGE
+                                , MEM_GENDER
+                                , PHONE
+                                , EMAIL
+                                , MEM_POINT
+                            )
+            VALUES (
+                    #{ id }
+                    , #{ pwd }
+                    , #{ name }
+                    , #{ age }
+                    , #{ gender }
+                    , #{ phone }
+                    , #{ email }
+                    , #{ point }
+                    )
+    </insert>
 </mapper>

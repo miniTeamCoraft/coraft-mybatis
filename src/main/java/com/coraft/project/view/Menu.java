@@ -1,13 +1,8 @@
-/*
 package com.coraft.project.view;
 
 import com.coraft.project.model.dto.MemberDTO;
 
 import java.util.Scanner;
-
-import static com.coraft.project.view.Login.memcont;
-import static com.coraft.project.view.Login.paycont;
-
 
 public class Menu {
     Scanner sc = new Scanner(System.in);
@@ -25,24 +20,23 @@ public class Menu {
             System.out.print("메뉴를 선택하세요 : ");
             String num = sc.nextLine();
 
-            MenuController lectcont = new MenuController();
-
-            switch (num) {
-                case "1":
-                    lectcont.showListLecture(user);
-                    break;
-                case "2":
-                    memcont.memberInfo(user);
-                    break;
-                case "3": paycont.userSelectLec(user.getId());
-                    break;
-                case "9":
-                    System.out.println("CORAFT를 로그아웃합니다. 감사합니다."); return;
-                default:
-                    System.out.println("잘못된 메뉴를 선택하셨습니다.");
-                    break;
-            }
+//            MenuController lectcont = new MenuController();
+//
+//            switch (num) {
+//                case "1":
+//                    lectcont.showListLecture(user);
+//                    break;
+//                case "2":
+//                    memcont.memberInfo(user);
+//                    break;
+//                case "3": paycont.userSelectLec(user.getId());
+//                    break;
+//                case "9":
+//                    System.out.println("CORAFT를 로그아웃합니다. 감사합니다."); return;
+//                default:
+//                    System.out.println("잘못된 메뉴를 선택하셨습니다.");
+//                    break;
+//            }
         }
     }
 }
-*/

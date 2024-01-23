@@ -8,7 +8,7 @@ public class MemberDTO {
     private String gender;
     private String phone;
     private String email;
-    private int point = 5000;
+    private int point;
 
     public MemberDTO() {}
 

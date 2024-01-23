@@ -19,4 +19,21 @@ public class MemberService {
 
         return memberOneList;
     }
+
+    public boolean insertUser(MemberDTO user) {
+        SqlSession sqlSession = getSqlSession();
+        memberDAO = sqlSession.getMapper(MemberDAO.class);
+
+        int result = memberDAO.insertUser(user);
+
+        if(result > 0) {
+            sqlSession.commit();
+        }else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0? true : false;
+    }
 }
