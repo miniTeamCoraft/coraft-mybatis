@@ -1,6 +1,7 @@
 package com.coraft.project.view;
 
 import com.coraft.project.controller.LectureController;
+import com.coraft.project.model.dto.LectureDTO;
 import com.coraft.project.model.dto.MemberDTO;
 import com.coraft.project.model.service.LectureService;
 
@@ -11,6 +12,7 @@ import static com.coraft.project.view.Login.*;
 public class Menu {
     Scanner sc = new Scanner(System.in);
     public static MemberDTO user;
+    public static LectureDTO lecture;
     public static LectureController lectureController;
     public static LectureService lectureService;
     public Menu() {
@@ -33,7 +35,7 @@ public class Menu {
 
             switch (num) {
                 case "1":
-                    lectureController.showListLecture(user);
+                    lectureController.showListLecture();
                     break;
                 case "2":
                     memberController.memberInfo(user);

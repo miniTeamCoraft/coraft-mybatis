@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.coraft.project.model.dao.LectureDAO">
+    <resultMap id="lectureResultMap" type="LectureDTO">
+        <id property="lecCode" column="LEC_CODE" />
+        <result property="lecName" column="LEC_NAME" />
+        <result property="date" column="LEC_DATE" />
+        <result property="time" column="LEC_TIME" />
+        <result property="lecPrice" column="LEC_PRICE" />
+    </resultMap>
+    <select id="showAllLectures" resultMap="lectureResultMap">
+        SELECT LEC_CODE
+                , LEC_NAME
+                , LEC_DATE
+                , LEC_TIME
+                , LEC_PRICE
+          FROM LECTURE_INFO
+    </select>
+
+</mapper>
