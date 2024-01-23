@@ -36,4 +36,15 @@ public class MemberService {
 
         return result > 0? true : false;
     }
+
+    public MemberDTO memberInfo(String id) {
+        SqlSession sqlSession = getSqlSession();
+        memberDAO = sqlSession.getMapper(MemberDAO.class);
+
+        MemberDTO member = memberDAO.memberInfo(id);
+
+        sqlSession.close();
+
+        return member;
+    }
 }

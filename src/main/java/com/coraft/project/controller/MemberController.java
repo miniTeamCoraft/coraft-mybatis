@@ -3,17 +3,26 @@ package com.coraft.project.controller;
 import java.util.Map;
 
 import com.coraft.project.model.dto.MemberDTO;
-import static com.coraft.project.view.Login.memberService;
-import static com.coraft.project.view.Login.menu;
+
+import static com.coraft.project.view.Login.*;
+import static com.coraft.project.view.Menu.user;
 
 public class MemberController {
-    public void login(MemberDTO memIdPwd) {
-        String doId = memIdPwd.getId();
+    public void login(MemberDTO loginUser) {
+        String doId = loginUser.getId();
         MemberDTO memberOneList = memberService.checkIdPwd(doId);
 
-        if(memberOneList.getId().equals(memIdPwd.getId())) {
-            if (memberOneList.getPwd().equals(memIdPwd.getPwd())) {
+        if(memberOneList.getId().equals(loginUser.getId())) {
+            if (memberOneList.getPwd().equals(loginUser.getPwd())) {
                 System.out.println(memberOneList.getName() + "님 로그인 성공했습니다.");
+                user.setId(memberOneList.getId());
+                user.setPwd(memberOneList.getPwd());
+                user.setName(memberOneList.getName());
+                user.setAge(memberOneList.getAge());
+                user.setGender(memberOneList.getGender());
+                user.setPhone(memberOneList.getPhone());
+                user.setPoint(memberOneList.getPoint());
+
                 menu.mainMenu();
             }
         }else {
@@ -46,6 +55,18 @@ public class MemberController {
             System.out.println("회원가입에 성공했습니다.");
         }else {
             System.out.println("회원가입에 실패했습니다.");
+        }
+    }
+
+    public void memberInfo(MemberDTO user) {
+        String id = user.getId();
+        System.out.println(id);
+        MemberDTO member = memberService.memberInfo(id);
+
+        if(member != null) {
+            System.out.println(member);
+        }else {
+            System.out.println("no");
         }
     }
 }

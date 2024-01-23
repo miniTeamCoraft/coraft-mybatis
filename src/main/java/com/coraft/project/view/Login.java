@@ -1,7 +1,9 @@
 package com.coraft.project.view;
 
+import com.coraft.project.controller.LectureController;
 import com.coraft.project.controller.MemberController;
 import com.coraft.project.model.dto.MemberDTO;
+import com.coraft.project.model.service.LectureService;
 import com.coraft.project.model.service.MemberService;
 
 import java.util.HashMap;
@@ -12,8 +14,10 @@ public class Login {
     Scanner sc = new Scanner(System.in);
 
     public static Menu menu;
+
     public static MemberController memberController;
     public static MemberService memberService;
+
 //    public static PayController paycont = new PayController();
 
     public Login() {
@@ -51,10 +55,10 @@ public class Login {
         String pwd = sc.nextLine();
         System.out.println("-------------------------------------------------");
 
-        MemberDTO memIdPwd = new MemberDTO();
-        memIdPwd.setId(id);
-        memIdPwd.setPwd(pwd);
-        return memIdPwd;
+        MemberDTO user = new MemberDTO();
+        user.setId(id);
+        user.setPwd(pwd);
+        return user;
     }
 
     public Map<String, String> doRegist() {

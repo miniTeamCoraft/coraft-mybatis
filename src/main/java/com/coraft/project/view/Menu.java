@@ -1,12 +1,23 @@
 package com.coraft.project.view;
 
+import com.coraft.project.controller.LectureController;
 import com.coraft.project.model.dto.MemberDTO;
+import com.coraft.project.model.service.LectureService;
 
 import java.util.Scanner;
+
+import static com.coraft.project.view.Login.*;
 
 public class Menu {
     Scanner sc = new Scanner(System.in);
     public static MemberDTO user;
+    public static LectureController lectureController;
+    public static LectureService lectureService;
+    public Menu() {
+        user = new MemberDTO();
+        lectureController = new LectureController();
+        lectureService = new LectureService();
+    }
 
     public void mainMenu() {
         while (true) {
@@ -20,23 +31,20 @@ public class Menu {
             System.out.print("메뉴를 선택하세요 : ");
             String num = sc.nextLine();
 
-//            MenuController lectcont = new MenuController();
-//
-//            switch (num) {
-//                case "1":
-//                    lectcont.showListLecture(user);
-//                    break;
-//                case "2":
-//                    memcont.memberInfo(user);
-//                    break;
-//                case "3": paycont.userSelectLec(user.getId());
-//                    break;
-//                case "9":
-//                    System.out.println("CORAFT를 로그아웃합니다. 감사합니다."); return;
-//                default:
-//                    System.out.println("잘못된 메뉴를 선택하셨습니다.");
-//                    break;
-//            }
+            switch (num) {
+                case "1":
+                    lectureController.showListLecture(user);
+                    break;
+                case "2":
+                    memberController.memberInfo(user);
+                    break;
+//                case "3": paycont.userSelectLec(user.getId()); break;
+                case "9":
+                    System.out.println("CORAFT를 로그아웃합니다. 감사합니다."); return;
+                default:
+                    System.out.println("잘못된 메뉴를 선택하셨습니다.");
+                    break;
+            }
         }
     }
 }
