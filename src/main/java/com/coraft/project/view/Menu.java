@@ -1,6 +1,6 @@
+/*
 package com.coraft.project.view;
 
-import com.coraft.project.controller.MenuController;
 import com.coraft.project.model.dto.MemberDTO;
 
 import java.util.Scanner;
@@ -45,3 +45,4 @@ public class Menu {
         }
     }
 }
+*/

@@ -1,16 +1,20 @@
 package com.coraft.project.view;
 
 import com.coraft.project.controller.MemberController;
-import com.coraft.project.controller.PayController;
 import com.coraft.project.model.dto.MemberDTO;
+import com.coraft.project.model.service.MemberService;
 
 import java.util.Scanner;
 
 public class Login {
-    public static MemberController memcont = new MemberController();
-    public static PayController paycont = new PayController();
-
     Scanner sc = new Scanner(System.in);
+
+    public MemberController memberController;
+//    public static PayController paycont = new PayController();
+
+    public Login() {
+        memberController = new MemberController();
+    }
 
     public void mainLogin() {
         System.out.println("=================================================");
@@ -25,8 +29,8 @@ public class Login {
             String num = sc.next();
 
             switch (num) {
-                case "1" : memcont.login(doLogin()); break;
-                case "2" : doRegist(); break;
+                case "1" : memberController.login(doLogin()); break;
+//                case "2" : doRegist(); break;
                 case "9" : System.out.println("CORAFT를 종료합니다."); return;
                 default : System.out.println("잘못된 메뉴를 선택하셨습니다. 다시 입력해주세요."); break;
             }
@@ -40,10 +44,14 @@ public class Login {
         System.out.print("비밀번호를 입력하세요 : ");
         String pwd = sc.nextLine();
         System.out.println("-------------------------------------------------");
-        return new MemberDTO(id, pwd);
+
+        MemberDTO memIdPwd = new MemberDTO();
+        memIdPwd.setId(id);
+        memIdPwd.setPwd(pwd);
+        return memIdPwd;
     }
 
-    public void doRegist() {
+    /*public void doRegist() {
         System.out.println("\n= 회원가입 =========================================");
         sc.nextLine();
         String id = memcont.checkId();
@@ -79,5 +87,5 @@ public class Login {
         }else {
             System.out.println("회원 등록 실패!");
         }
-    }
+    }*/
 }

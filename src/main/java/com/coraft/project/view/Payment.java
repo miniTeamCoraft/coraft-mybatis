@@ -1,6 +1,6 @@
+/*
 package com.coraft.project.view;
 
-import com.coraft.project.controller.PayController;
 import com.coraft.project.model.dto.LectureDTO;
 
 import java.util.Scanner;
@@ -45,3 +45,4 @@ public class Payment {
         }
     }
 }
+*/

@@ -6,8 +6,8 @@
     <properties resource="config/connection-info.properties"/>
     <typeAliases>
         <typeAlias type="com.coraft.project.model.dto.MemberDTO" alias="MemberDTO"/>
-        <typeAlias type="com.coraft.project.model.dto.LectureDTO" alias="LectureDTO"/>
-        <typeAlias type="com.coraft.project.model.dto.RegistDTO" alias="RegistDTO"/>
+<!--        <typeAlias type="com.coraft.project.model.dto.LectureDTO" alias="LectureDTO"/>-->
+<!--        <typeAlias type="com.coraft.project.model.dto.RegistDTO" alias="RegistDTO"/>-->
     </typeAliases>
 
     <environments default="dev">
