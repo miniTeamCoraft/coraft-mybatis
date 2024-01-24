@@ -12,22 +12,29 @@ public class MemberController {
         String doId = loginUser.getId();
         MemberDTO memberOneList = memberService.checkIdPwd(doId);
 
-        if(memberOneList.getId().equals(loginUser.getId())) {
-            if (memberOneList.getPwd().equals(loginUser.getPwd())) {
-                System.out.println(memberOneList.getName() + "님 로그인 성공했습니다.");
-                user.setId(memberOneList.getId());
-                user.setPwd(memberOneList.getPwd());
-                user.setName(memberOneList.getName());
-                user.setAge(memberOneList.getAge());
-                user.setGender(memberOneList.getGender());
-                user.setPhone(memberOneList.getPhone());
-                user.setPoint(memberOneList.getPoint());
+        if(memberOneList != null) {
+            if(memberOneList.getId().equals(loginUser.getId())) {
+                if (memberOneList.getPwd().equals(loginUser.getPwd())) {
+                    System.out.println(memberOneList.getName() + "님 로그인 성공했습니다.");
+                    user.setId(memberOneList.getId());
+                    user.setPwd(memberOneList.getPwd());
+                    user.setName(memberOneList.getName());
+                    user.setAge(memberOneList.getAge());
+                    user.setGender(memberOneList.getGender());
+                    user.setPhone(memberOneList.getPhone());
+                    user.setPoint(memberOneList.getPoint());
 
-                menu.mainMenu();
+                    menu.mainMenu();
+                }else {
+                    System.out.println("로그인 실패했습니다.");
+                }
+            }else {
+                System.out.println("로그인 실패했습니다.");
             }
         }else {
             System.out.println("로그인 실패했습니다.");
         }
+
     }
 
     public void insertUser(Map<String, String> parameter) {
@@ -49,8 +56,6 @@ public class MemberController {
         user.setEmail(email);
         user.setPoint(5000);
 
-//        boolean result = memberService.registNewMember(user);
-
         if(memberService.insertUser(user)) {
             System.out.println("회원가입에 성공했습니다.");
         }else {
@@ -66,7 +71,7 @@ public class MemberController {
         if(member != null) {
             System.out.println(member);
         }else {
-            System.out.println("no");
+            System.out.println("회원 정보가 존재하지 않습니다.");
         }
     }
 }
