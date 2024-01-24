@@ -1,6 +1,6 @@
 package com.coraft.project.model.dto;
 
-public class LectureDTO {
+public class LectureDTO implements java.io.Serializable {
     private int lecCode;
     private String lecName;
     private String date;

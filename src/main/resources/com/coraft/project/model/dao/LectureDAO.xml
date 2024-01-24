@@ -20,4 +20,13 @@
           FROM LECTURE_INFO
     </select>
 
+    <select id="selectLecture" parameterType="_int" resultMap="lectureResultMap">
+        SELECT LEC_CODE
+                , LEC_NAME
+                , LEC_DATE
+                , LEC_TIME
+                , LEC_PRICE
+            FROM LECTURE_INFO
+            WHERE LEC_CODE = #{code}
+    </select>
 </mapper>

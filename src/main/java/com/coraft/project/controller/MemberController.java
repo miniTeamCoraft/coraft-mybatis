@@ -65,7 +65,6 @@ public class MemberController {
 
     public void memberInfo(MemberDTO user) {
         String id = user.getId();
-        System.out.println(id);
         MemberDTO member = memberService.memberInfo(id);
 
         if(member != null) {
@@ -73,5 +72,8 @@ public class MemberController {
         }else {
             System.out.println("회원 정보가 존재하지 않습니다.");
         }
+    }
+
+    public void updatePoint(int upPoint) {
     }
 }

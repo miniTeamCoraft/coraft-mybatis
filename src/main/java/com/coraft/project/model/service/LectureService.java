@@ -22,4 +22,15 @@ public class LectureService {
 
         return lectureList;
     }
+
+    public LectureDTO selectLecture(int num) {
+        SqlSession sqlSession = getSqlSession();
+        lectureDAO = sqlSession.getMapper(LectureDAO.class);
+
+        LectureDTO userSelectLecture = lectureDAO.selectLecture(num);
+
+        sqlSession.close();
+
+        return userSelectLecture;
+    }
 }

@@ -12,13 +12,9 @@ import java.util.Scanner;
 
 public class Login {
     Scanner sc = new Scanner(System.in);
-
     public static Menu menu;
-
     public static MemberController memberController;
     public static MemberService memberService;
-
-//    public static PayController paycont = new PayController();
 
     public Login() {
         menu = new Menu();

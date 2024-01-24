@@ -1,7 +1,7 @@
 package com.coraft.project.view;
 
 import com.coraft.project.controller.LectureController;
-import com.coraft.project.model.dto.LectureDTO;
+import com.coraft.project.controller.PayController;
 import com.coraft.project.model.dto.MemberDTO;
 import com.coraft.project.model.service.LectureService;
 
@@ -12,13 +12,15 @@ import static com.coraft.project.view.Login.*;
 public class Menu {
     Scanner sc = new Scanner(System.in);
     public static MemberDTO user;
-    public static LectureDTO lecture;
     public static LectureController lectureController;
     public static LectureService lectureService;
+    public static PayController payController;
+
     public Menu() {
         user = new MemberDTO();
         lectureController = new LectureController();
         lectureService = new LectureService();
+        payController = new PayController();
     }
 
     public void mainMenu() {
@@ -40,7 +42,7 @@ public class Menu {
                 case "2":
                     memberController.memberInfo(user);
                     break;
-//                case "3": paycont.userSelectLec(user.getId()); break;
+                case "3": payController.userSelectLec(); break;
                 case "9":
                     System.out.println("CORAFT를 로그아웃합니다. 감사합니다."); return;
                 default:

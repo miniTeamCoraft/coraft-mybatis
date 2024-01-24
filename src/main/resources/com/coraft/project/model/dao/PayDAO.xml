@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.coraft.project.model.dao.PayDAO">
+    <resultMap id="payResultMap" type="PayDTO">
+        <id property="id" column="MEM_ID" />
+        <result property="lecCode" column="LEC_CODE" />
+    </resultMap>
+
+    <insert id="insertUserLec" parameterType="PayDTO">
+        INSERT INTO REGIST (
+                            MEM_ID
+                            , LEC_CODE
+                            )
+            VALUES (
+                    #{id}
+                    , #{lecCode}
+                    )
+    </insert>
+</mapper>

@@ -7,4 +7,5 @@ import java.util.List;
 public interface LectureDAO {
 
     List<LectureDTO> showAllLectures();
+    LectureDTO selectLecture(int num);
 }

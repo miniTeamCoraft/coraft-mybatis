@@ -1,12 +1,12 @@
 package com.coraft.project.model.dto;
 
-public class RegistDTO {
+public class PayDTO implements java.io.Serializable {
     private String id;
     private int lecCode;
 
-    public RegistDTO() {}
+    public PayDTO() {}
 
-    public RegistDTO(String id, int lecCode) {
+    public PayDTO(String id, int lecCode) {
         this.id = id;
         this.lecCode = lecCode;
     }

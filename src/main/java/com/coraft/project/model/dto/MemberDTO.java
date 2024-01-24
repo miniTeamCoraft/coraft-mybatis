@@ -1,6 +1,6 @@
 package com.coraft.project.model.dto;
 
-public class MemberDTO {
+public class MemberDTO implements java.io.Serializable {
     private String id;
     private String pwd;
     private String name;
