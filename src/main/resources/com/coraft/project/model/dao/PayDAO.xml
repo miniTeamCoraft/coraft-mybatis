@@ -30,16 +30,4 @@
         JOIN LECTURE_INFO l ON r.LEC_CODE = l.LEC_CODE
         WHERE r.MEM_ID = #{ id }
     </select>
-
-    <!--<select id="showUserLecture" resultMap="payResultMap">
-        SELECT l.LEC_CODE
-        , l.LEC_NAME
-        , l.LEC_DATE
-        , l.LEC_TIME
-        , l.LEC_PRICE
-        FROM REGIST r
-        JOIN LECTURE_INFO l ON r.LEC_CODE = l.LEC_CODE
-        WHERE r.MEM_ID = #{ id } AND l.LEC_CODE = #{ lecCode }
-    </select>-->
-
 </mapper>

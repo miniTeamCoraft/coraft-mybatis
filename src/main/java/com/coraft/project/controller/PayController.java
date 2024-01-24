@@ -31,7 +31,7 @@ public class PayController {
         System.out.println("CORAFT 규정에 따라 결제금액의 5%인 " + getPoint + "포인트 적립됩니다.");
         System.out.println("적립된 포인트는 다음 수강신청 시 사용하실 수 있습니다.");
         int upPoint = getPoint + user.getPoint();
-        memberController.updatePoint(upPoint);
+        uploadPoint(upPoint);
     }
 
     public void usePayPoint() {
@@ -56,15 +56,17 @@ public class PayController {
             System.out.println(usePoint + "포인트를 차감한 " + payNewPrice + "원은 자동 카드결제됩니다.");
             int getPoint = (int) (payNewPrice * 0.05);
             int upPoint = minusPoint + getPoint;
+
             pay();
             userLec();
-            memberController.updatePoint(upPoint);
+            uploadPoint(upPoint);
 
         } else if (payNewPrice < 0) {
             System.out.println("포인트 사용 금액이 결제할 금액보다 많습니다. \n포인트를 다시 입력해 주세요");
         } else {
             System.out.println(usePoint + "포인트를 사용하여 전액 포인트 결제 되었습니다.");
             userLec();
+            uploadPoint(0);
         }
     }
 
@@ -100,6 +102,14 @@ public class PayController {
         }
     }
 
+    public void uploadPoint(int upPoint) {
+        Map<String, String> parameter = new HashMap<>();
+        String updPoint = upPoint + "";
+        parameter.put("id", user.getId());
+        parameter.put("point", updPoint);
+
+        memberController.updatePoint(parameter);
+    }
 
     public void userSelectLec() {
 
@@ -124,16 +134,15 @@ public class PayController {
         if (lectureList == null) {
             System.out.println("수강 신청 내역이 존재하지 않습니다.");
         } else {
-            /*lecture.setLecName(pocketLecture.getLecName());
-            lecture.setDate(pocketLecture.getDate());
-            lecture.setTime(pocketLecture.getTime());
-            lecture.setLecPrice(pocketLecture.getLecPrice());*/
+            /*lectureList.setLecName(pocketLecture.getLecName());
+            lectureList.setDate(pocketLecture.getDate());
+            lectureList.setTime(pocketLecture.getTime());
+            lectureList.setLecPrice(pocketLecture.getLecPrice());*/
             pocketLecture.getLecName();
             pocketLecture.getDate();
             pocketLecture.getTime();
             pocketLecture.getLecPrice();
-
-            System.out.println(pocketLecture);
+            System.out.println(lectureList);
         }
 
     }

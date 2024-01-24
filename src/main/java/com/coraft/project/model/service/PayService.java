@@ -39,18 +39,5 @@ public class PayService {
         sqlSession.close();
 
         return lecture;
-
     }
-
-    /*public PayDTO showUserLecture() {
-
-        SqlSession sqlSession = getSqlSession();
-
-        payDAO = sqlSession.getMapper(PayDAO.class);
-        PayDTO pay = payDAO.showUserLecture();
-
-        sqlSession.close();
-
-        return pay;
-    }*/
 }

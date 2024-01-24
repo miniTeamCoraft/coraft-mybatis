@@ -47,4 +47,20 @@ public class MemberService {
 
         return member;
     }
+
+    public boolean updatePoint(MemberDTO userPoint) {
+        SqlSession sqlSession = getSqlSession();
+        memberDAO = sqlSession.getMapper(MemberDAO.class);
+
+        int result = memberDAO.updatePoint(userPoint);
+
+        if(result > 0) {
+            sqlSession.commit();
+        }else {
+            sqlSession.rollback();
+        }
+        sqlSession.close();
+
+        return result > 0? true : false;
+    }
 }

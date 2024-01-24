@@ -62,4 +62,10 @@
             FROM MEMBERS
             WHERE MEM_ID = #{id}
     </select>
+
+    <update id="updatePoint" parameterType="MemberDTO">
+        UPDATE MEMBERS
+            SET MEM_POINT = #{point}
+            WHERE MEM_ID = #{id}
+    </update>
 </mapper>
