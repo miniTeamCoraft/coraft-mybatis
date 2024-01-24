@@ -7,6 +7,7 @@ import com.coraft.project.model.service.LectureService;
 
 import java.util.Scanner;
 
+import static com.coraft.project.controller.LectureController.pocketLecture;
 import static com.coraft.project.view.Login.*;
 
 public class Menu {

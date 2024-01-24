@@ -75,5 +75,6 @@ public class MemberController {
     }
 
     public void updatePoint(int upPoint) {
+
     }
 }

@@ -1,8 +1,11 @@
 package com.coraft.project.model.service;
 
 import com.coraft.project.model.dao.PayDAO;
+import com.coraft.project.model.dto.LectureDTO;
 import com.coraft.project.model.dto.PayDTO;
 import org.apache.ibatis.session.SqlSession;
+
+import java.util.List;
 
 import static com.coraft.project.common.Template.getSqlSession;
 
@@ -25,4 +28,29 @@ public class PayService {
 
         return result > 0? true : false;
     }
+
+    public List<LectureDTO> showUserLecture(String id) {
+        SqlSession sqlSession = getSqlSession();
+
+        payDAO = sqlSession.getMapper(PayDAO.class);
+
+        List<LectureDTO> lecture = payDAO.showUserLecture(id);
+
+        sqlSession.close();
+
+        return lecture;
+
+    }
+
+    /*public PayDTO showUserLecture() {
+
+        SqlSession sqlSession = getSqlSession();
+
+        payDAO = sqlSession.getMapper(PayDAO.class);
+        PayDTO pay = payDAO.showUserLecture();
+
+        sqlSession.close();
+
+        return pay;
+    }*/
 }

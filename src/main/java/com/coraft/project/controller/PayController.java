@@ -1,11 +1,11 @@
 package com.coraft.project.controller;
 
+import com.coraft.project.model.dto.LectureDTO;
+import com.coraft.project.model.dto.MemberDTO;
 import com.coraft.project.model.dto.PayDTO;
 import com.coraft.project.model.service.PayService;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 import static com.coraft.project.controller.LectureController.pocketLecture;
 import static com.coraft.project.view.Login.memberController;
@@ -93,6 +93,7 @@ public class PayController {
         if (payService.insertUserLec(pay)) {
             System.out.println("-------------------------------------------------");
             System.out.println("수강 신청 성공했습니다.");
+            userSelectLec();
         } else {
             System.out.println("-------------------------------------------------");
             System.out.println("수강 신청 실패했습니다.");
@@ -101,21 +102,39 @@ public class PayController {
 
 
     public void userSelectLec() {
-            /*pstmt = con.prepareStatement(query);
-            pstmt.setString(1, id);
 
-            rset = pstmt.executeQuery();
+/*        PayDTO pay = payService.showUserLecture(user.getId(), pocketLecture.getLecCode());*/
 
-            System.out.println("\n[ 신청 내역 ]");
-            while(rset.next()) {
-                if(rset.getString("LEC_CODE").isEmpty()) {
-                    System.out.println("수강 신청 내역이 존재하지 않습니다.");
-                }else {
-                    System.out.println("강의 이름 : " + rset.getString("LEC_NAME")
-                            + " || 날짜 : " + rset.getString("LEC_DATE")
-                            + " || 시간 : " + rset.getString("LEC_TIME")
-                            + " || 가격 : " + rset.getInt("LEC_PRICE") + "원");
-                }
-            }*/
+//        String lectureCode = pocketLecture.getLecCode() + "";
+//        parameter.put("lecCode", lectureCode);
+//        int code = Integer.parseInt(parameter.get("lecCode")) + 1;
+//        pay.setLecCode(code);
+        String userId = user.getId();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("id", userId);
+
+        String id = parameter.get("id");
+
+        List<LectureDTO> lectureList = payService.showUserLecture(id);
+//        PayDTO pay = new PayDTO();
+//        pay.setId(id);
+
+        System.out.println("\n[ 신청 내역 ]");
+        if (lectureList == null) {
+            System.out.println("수강 신청 내역이 존재하지 않습니다.");
+        } else {
+            /*lecture.setLecName(pocketLecture.getLecName());
+            lecture.setDate(pocketLecture.getDate());
+            lecture.setTime(pocketLecture.getTime());
+            lecture.setLecPrice(pocketLecture.getLecPrice());*/
+            pocketLecture.getLecName();
+            pocketLecture.getDate();
+            pocketLecture.getTime();
+            pocketLecture.getLecPrice();
+
+            System.out.println(pocketLecture);
+        }
+
     }
 }
