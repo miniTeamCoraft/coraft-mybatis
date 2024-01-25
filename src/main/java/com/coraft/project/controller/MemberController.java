@@ -1,6 +1,7 @@
 package com.coraft.project.controller;
 
 import java.util.Map;
+import java.util.Scanner;
 
 import com.coraft.project.model.dto.MemberDTO;
 
@@ -12,8 +13,8 @@ public class MemberController {
         String doId = loginUser.getId();
         MemberDTO memberOneList = memberService.checkIdPwd(doId);
 
-        if(memberOneList != null) {
-            if(memberOneList.getId().equals(loginUser.getId())) {
+        if (memberOneList != null) {
+            if (memberOneList.getId().equals(loginUser.getId())) {
                 if (memberOneList.getPwd().equals(loginUser.getPwd())) {
                     System.out.println(memberOneList.getName() + "님 로그인 성공했습니다.");
                     user.setId(memberOneList.getId());
@@ -25,13 +26,13 @@ public class MemberController {
                     user.setPoint(memberOneList.getPoint());
 
                     menu.mainMenu();
-                }else {
+                } else {
                     System.out.println("로그인 실패했습니다.");
                 }
-            }else {
+            } else {
                 System.out.println("로그인 실패했습니다.");
             }
-        }else {
+        } else {
             System.out.println("로그인 실패했습니다.");
         }
 
@@ -56,9 +57,9 @@ public class MemberController {
         user.setEmail(email);
         user.setPoint(5000);
 
-        if(memberService.insertUser(user)) {
+        if (memberService.insertUser(user)) {
             System.out.println("회원가입에 성공했습니다.");
-        }else {
+        } else {
             System.out.println("회원가입에 실패했습니다.");
         }
     }
@@ -67,9 +68,9 @@ public class MemberController {
         String id = user.getId();
         MemberDTO member = memberService.memberInfo(id);
 
-        if(member != null) {
+        if (member != null) {
             System.out.println(member);
-        }else {
+        } else {
             System.out.println("회원 정보가 존재하지 않습니다.");
         }
     }
@@ -82,10 +83,36 @@ public class MemberController {
         userPoint.setId(id);
         userPoint.setPoint(point);
 
-        if(memberService.updatePoint(userPoint)) {
+        if (memberService.updatePoint(userPoint)) {
             System.out.println("포인트 업데이트 성공했습니다.");
-        }else {
+        } else {
             System.out.println("포인트 업데이트 실패했습니다.");
         }
+    }
+
+    public String checkId() {
+
+        do {
+            Scanner sc = new Scanner(System.in);
+            System.out.print("아이디를 입력하세요 : ");
+            String id = sc.nextLine();
+
+            MemberDTO memberIdList = memberService.checkUserId(id);
+
+            /*if (memberIdList != null) {
+                if (memberIdList.getId().equals(id)) {
+                    System.out.println("이미 사용 중인 아이디 입니다. 다시 입력해주세요.");
+
+                } else {
+                    System.out.println("사용 가능한 아이디 입니다."); return id;
+                }
+            }*/
+
+            if (memberIdList != null) {
+                System.out.println("이미 사용중인 아이디입니다. 다시 입력해주세요.");
+            }else{
+                System.out.println("사용 가능한 아이디입니다."); return id;
+            }
+        }while (true);
     }
 }

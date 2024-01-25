@@ -63,4 +63,15 @@ public class MemberService {
 
         return result > 0? true : false;
     }
+
+    public MemberDTO checkUserId(String userId) {
+        SqlSession sqlSession = getSqlSession();
+        memberDAO = sqlSession.getMapper(MemberDAO.class);
+
+        MemberDTO memberIdList = memberDAO.checkUserId(userId);
+
+        sqlSession.close();
+
+        return memberIdList;
+    }
 }

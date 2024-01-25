@@ -60,9 +60,9 @@ public class Login {
     public Map<String, String> doRegist() {
         System.out.println("\n= 회원가입 =========================================");
         sc.nextLine();
-//        String id = memberController.checkId();
-        System.out.print("아이디를 입력하세요 : ");
-        String id = sc.nextLine();
+        String id = memberController.checkId();
+//        System.out.print("아이디를 입력하세요 : ");
+//        String id = sc.nextLine();
         System.out.print("비밀번호를 입력하세요 : ");
         String pwd = sc.nextLine();
         System.out.print("이름을 입력하세요 : ");

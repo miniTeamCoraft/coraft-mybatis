@@ -7,4 +7,6 @@ public interface MemberDAO {
     int insertUser(MemberDTO user);
     MemberDTO memberInfo(String id);
     int updatePoint(MemberDTO userPoint);
+
+    MemberDTO checkUserId(String userId);
 }
