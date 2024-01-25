@@ -114,6 +114,8 @@ public class PayController {
         List<LectureDTO> userLecture = payService.userSelectLec(id);
 
         if(userLecture != null) {
+            System.out.println("-------------------------------------------------");
+            System.out.println("\n[ 강의 신청 내역 ]");
             for(LectureDTO lec : userLecture) {
                 System.out.println(lec);
             }

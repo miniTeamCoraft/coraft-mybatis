@@ -74,7 +74,18 @@ public class MemberController {
         }
     }
 
-    public void updatePoint(int upPoint) {
+    public void updatePoint(Map<String, String> parameter) {
+        String id = parameter.get("id");
+        int point = Integer.parseInt(parameter.get("point"));
 
+        MemberDTO userPoint = new MemberDTO();
+        userPoint.setId(id);
+        userPoint.setPoint(point);
+
+        if(memberService.updatePoint(userPoint)) {
+            System.out.println("포인트 업데이트 성공했습니다.");
+        }else {
+            System.out.println("포인트 업데이트 실패했습니다.");
+        }
     }
 }

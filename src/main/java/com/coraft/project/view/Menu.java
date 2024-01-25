@@ -43,7 +43,7 @@ public class Menu {
                 case "2":
                     memberController.memberInfo(user);
                     break;
-                case "3": payController.userSelectLec(); break;
+                case "3": payController.userSelectLec(user.getId()); break;
                 case "9":
                     System.out.println("CORAFT를 로그아웃합니다. 감사합니다."); return;
                 default:

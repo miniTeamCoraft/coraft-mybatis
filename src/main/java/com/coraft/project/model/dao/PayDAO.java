@@ -6,8 +6,6 @@ import com.coraft.project.model.dto.PayDTO;
 import java.util.List;
 
 public interface PayDAO {
-
     int insertUserLec(PayDTO pay);
-
-    List<LectureDTO> showUserLecture(String id);
+    List<LectureDTO> userSelectLec(String id);
 }

@@ -7,7 +7,6 @@ import java.util.Scanner;
 import static com.coraft.project.view.Menu.payController;
 
 public class Pay {
-
     private Scanner sc = new Scanner(System.in);
 
     public void mainPayment(LectureDTO pocketLecture) {

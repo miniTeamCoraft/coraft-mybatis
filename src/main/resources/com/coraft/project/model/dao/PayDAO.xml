@@ -9,6 +9,14 @@
         <result property="lecCode" column="LEC_CODE" />
     </resultMap>
 
+    <resultMap id="lectureResultMap" type="LectureDTO">
+        <id property="lecCode" column="LEC_CODE" />
+        <result property="lecName" column="LEC_NAME" />
+        <result property="date" column="LEC_DATE" />
+        <result property="time" column="LEC_TIME" />
+        <result property="lecPrice" column="LEC_PRICE" />
+    </resultMap>
+
     <insert id="insertUserLec" parameterType="PayDTO">
         INSERT INTO REGIST (
                             MEM_ID
@@ -20,7 +28,7 @@
                     )
     </insert>
 
-    <select id="showUserLecture" resultMap="payResultMap">
+    <select id="userSelectLec" resultMap="lectureResultMap">
         SELECT l.LEC_CODE
                 , l.LEC_NAME
                 , l.LEC_DATE
@@ -28,6 +36,6 @@
                 , l.LEC_PRICE
         FROM REGIST r
         JOIN LECTURE_INFO l ON r.LEC_CODE = l.LEC_CODE
-        WHERE r.MEM_ID = #{ id }
+        WHERE r.MEM_ID = #{id}
     </select>
 </mapper>
