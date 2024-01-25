@@ -19,7 +19,6 @@ public class PayController {
         pay();
         userLec();
     }
-
     public void payBonusMember() {
         usePayPoint();
     }

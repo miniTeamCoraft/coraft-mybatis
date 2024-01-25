@@ -35,7 +35,6 @@ public class MemberController {
         } else {
             System.out.println("로그인 실패했습니다.");
         }
-
     }
 
     public void insertUser(Map<String, String> parameter) {
@@ -69,7 +68,13 @@ public class MemberController {
         MemberDTO member = memberService.memberInfo(id);
 
         if (member != null) {
-            System.out.println(member);
+            System.out.println("\n[ 회원 정보 ]");
+            System.out.println("이름 : " + member.getName());
+            System.out.println("나이 : " + member.getAge());
+            System.out.println("성별 : " + member.getGender());
+            System.out.println("전화번호 : " + member.getPhone());
+            System.out.println("이메일 : " + member.getEmail());
+            System.out.println("포인트 : " + member.getPoint());
         } else {
             System.out.println("회원 정보가 존재하지 않습니다.");
         }
@@ -84,9 +89,9 @@ public class MemberController {
         userPoint.setPoint(point);
 
         if (memberService.updatePoint(userPoint)) {
-            System.out.println("포인트 업데이트 성공했습니다.");
+            System.out.println();
         } else {
-            System.out.println("포인트 업데이트 실패했습니다.");
+            System.out.println();
         }
     }
 
@@ -98,15 +103,6 @@ public class MemberController {
             String id = sc.nextLine();
 
             MemberDTO memberIdList = memberService.checkUserId(id);
-
-            /*if (memberIdList != null) {
-                if (memberIdList.getId().equals(id)) {
-                    System.out.println("이미 사용 중인 아이디 입니다. 다시 입력해주세요.");
-
-                } else {
-                    System.out.println("사용 가능한 아이디 입니다."); return id;
-                }
-            }*/
 
             if (memberIdList != null) {
                 System.out.println("이미 사용중인 아이디입니다. 다시 입력해주세요.");
