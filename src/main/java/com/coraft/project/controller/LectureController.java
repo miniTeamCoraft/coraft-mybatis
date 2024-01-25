@@ -61,6 +61,7 @@ public class LectureController {
             LectureDTO userSelectLecture = lectureService.selectLecture(num);
 
             if(userSelectLecture != null) {
+                pocketLecture.setLecCode(userSelectLecture.getLecCode());
                 pocketLecture.setLecName(userSelectLecture.getLecName());
                 pocketLecture.setDate(userSelectLecture.getDate());
                 pocketLecture.setTime(userSelectLecture.getTime());
